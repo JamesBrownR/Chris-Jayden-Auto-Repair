@@ -21,43 +21,27 @@ header{position:sticky;top:0;z-index:30;background:var(--card);box-shadow:0 2px 
 .brand .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#1e90ff);display:grid;place-items:center;color:white;font-weight:800}
 .nav{display:flex;gap:1rem;flex-wrap:wrap}
 .nav a{font-weight:600;color:var(--muted)}.nav a:hover{color:var(--text)}
-.phone-cta{display:flex;align-items:center;gap:.5rem}
 .phone-cta a.btn{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:.7rem;font-weight:700;font-size:1.2rem;box-shadow:0 6px 20px rgba(11,95,255,.25)}
 .pill{background:#eaf0ff;color:#123;padding:.25rem .6rem;border-radius:999px;font-weight:700}
-.hero{position:relative;padding:2rem 0}
+.hero{padding:2rem 0}
 .hero-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:1.2rem;align-items:center}
 .hero-card{background:var(--card);border-radius:1rem;padding:1.2rem;box-shadow:0 12px 30px rgba(0,0,0,.06);animation:fadeUp 1s ease}
 .hero h1{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.1;margin:.2rem 0 .6rem}
 .lead{color:var(--muted);font-size:1.05rem}
-.hero .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:.8rem;padding:.8rem 1.1rem;font-weight:700;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn.primary{background:var(--primary);color:#fff}
 .btn.primary:hover{background:var(--primary-700)}
 .btn.accent{background:var(--accent);color:#fff}
-.hero img{width:100%;height:340px;object-fit:cover;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.12);animation:fadeIn 1.2s ease}
+.hero img{width:100%;height:340px;object-fit:cover;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.12)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 section{padding:2.4rem 0}
-.section-title{font-size:1.6rem;margin:0 0 1rem;animation:fadeUp .8s ease}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
-.gallery img{width:100%;height:220px;object-fit:cover;border-radius:.8rem;transition:transform .3s}
-.gallery img:hover{transform:scale(1.05)}
-.review{background:var(--card);border-radius:1rem;padding:1rem;box-shadow:0 10px 24px rgba(0,0,0,.06);animation:fadeUp .6s ease}
+.section-title{font-size:1.6rem;margin:0 0 1rem}
+.review{background:var(--card);border-radius:1rem;padding:1rem;box-shadow:0 10px 24px rgba(0,0,0,.06)}
 .stars{color:#F59E0B;font-size:1.1rem;letter-spacing:.08rem}
-.review h4{margin:0 0 .35rem}
-.review p{margin:.4rem 0 0;white-space:pre-wrap}
+textarea{min-height:120px;resize:vertical;max-height:200px}
 .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.load-more{text-align:center;margin-top:1rem}
-form{display:grid;gap:.75rem}
-input,textarea{border:1px solid #d1d9e6;border-radius:.75rem;padding:.8rem;font:inherit;color:var(--text);background:#fff}
-textarea{min-height:160px;resize:vertical}
-input:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.map-wrap iframe{width:100%;min-height:360px;border:0;border-radius:.8rem;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-footer{background:#0b1220;color:#eef3ff;padding:1.6rem 1rem}
-footer a{color:#fff}
-@media(max-width:900px){.hero-wrap{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.reviews-grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
+@media(max-width:900px){.hero-wrap{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}}
 .call-fab{position:fixed;right:1rem;bottom:1rem;background:var(--accent);color:#fff;border-radius:999px;padding:1rem 1.1rem;font-weight:800;box-shadow:0 14px 40px rgba(0,0,0,.3);z-index:40}
 </style>
 </head>
@@ -91,34 +75,16 @@ footer a{color:#fff}
     <div class="load-more"><button id="moreBtn" class="btn primary" type="button">Show more reviews</button></div>
   </div>
 </section>
-<section id="gallery">
-  <div class="container">
-    <h2 class="section-title">Shop Photos</h2>
-    <div class="gallery">
-      <img src="Chrisjaydenautorepair1.png" alt="Repair work in progress" />
-      <img src="Chrisjaydenautorepair2.png" alt="Inside the service bay" />
-      <img src="Chrisjaydenautorepair3.png" alt="Front of the shop" />
-    </div>
-  </div>
-</section>
 <section id="contact">
-  <div class="container split">
-    <div class="card">
-      <h2 class="section-title">Contact / Email</h2>
-      <form id="contactForm" novalidate>
-        <div class="split">
-          <div><label for="name">Name</label><input id="name" name="name" required /></div>
-          <div><label for="phone">Phone</label><input id="phone" name="phone" /></div>
-        </div>
-        <div class="split">
-          <div><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
-          <div><label for="subject">Subject</label><input id="subject" name="subject" /></div>
-        </div>
-        <div><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
-        <button class="btn primary" type="submit">Send Message</button>
-      </form>
-    </div>
-    <div class="map-wrap" id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.0490070743376!2d-97.4843468!3d35.4485157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b217e7402dae75%3A0xad4960d876ef87fd!2sChrisJayden%20auto%20repair!5e0!3m2!1sen!2sus!4v1690000000000" allowfullscreen loading="lazy"></iframe></div>
+  <div class="container">
+    <form id="contactForm">
+      <label for="name">Name</label><input id="name" name="name" required />
+      <label for="phone">Phone</label><input id="phone" name="phone" />
+      <label for="email">Email</label><input id="email" name="email" type="email" required />
+      <label for="subject">Subject</label><input id="subject" name="subject" />
+      <label for="message">Message</label><textarea id="message" name="message" required></textarea>
+      <button class="btn primary" type="submit">Send Message</button>
+    </form>
   </div>
 </section>
 </main>
@@ -130,14 +96,53 @@ footer a{color:#fff}
 <a class="call-fab" href="tel:+14058617930">Call</a>
 <script>
 const REVIEWS = [
-  {name:"Caleb Cheatham",text:"My car broke down..."},
-  {name:"nursin4life",text:"They were Very Nice..."}
+  {name:"Caleb Cheatham",text:`My car broke down and became severely damaged a few miles outside of OKC...`},
+  {name:"nursin4life",text:`They were Very Nice and got my car(that was sitting for a year) up and running...`},
+  {name:"Davaro Wilson",text:`Came to get my radiator replaced in my C6 Corvette...`},
+  {name:"Lee Claude",text:`They are one of the best in okc...`},
+  {name:"Kevin Lindsey",text:`IHIGHLY recommend Everone going...`},
+  {name:"Moyosoreoluwa Bello",text:`Chris is very hard working guy...`},
+  {name:"samgwaa nyama",text:`Chrisjayden auto repair provided outstanding service...`},
+  {name:"Peace Mojekwu",text:`Great service and affordable...`},
+  {name:"Mari Smith",text:`Chris did an amazing job ! He replaced my rear brakes...`},
+  {name:"Mat Schauer",text:`Very good mechanic fast repairs at reasonable prices`},
+  {name:"Tawana Cunningham",text:`I recommend Chirs because he's a loyal guy...`},
+  {name:"Laquan Bruner",text:`Got the job done fast and efficiently`},
+  {name:"ELMOUSTAPHA Baba Ahmed",text:`Very good mechanic`},
+  {name:"Jajuan Brown",text:`Great customer service very helpful...`},
+  {name:"JAMES IYASSE",text:`Hi,I recommend this place,very loyal...`},
+  {name:"luiz paulo rodrigues",text:`Very good 👍🏻`},
+  {name:"Real Ness",text:`Great service…did the job well`},
+  {name:"Mudassar Ch",text:`Really humble a fast 🙏`},
+  {name:"Evablack Eva",text:`Very welcoming and good customer service`},
+  {name:"Wilfred Omonua",text:`Nice and affordable service`},
+  {name:"48 spices",text:`Great job`},
+  {name:"ntankeh augustin",text:`Fast and reliable service`},
+  {name:"Chris 001",text:`Very good mechanic and fast`},
+  {name:"Paul Nungeh",text:`Great service, I highly recommend them...`},
+  {name:"Jayboy Lexy",text:`I recently had my brakes replaced at CHRISJAYDEN AUTO REPAIR SHOP...`},
+  {name:"Emmanu Mban",text:``},
+  {name:"mumah blaise",text:``},
+  {name:"sheyi oladipo",text:``},
+  {name:"Thebest Ever",text:``},
+  {name:"Wobga Njimanted",text:``},
+  {name:"Blaise Atembe",text:``},
+  {name:"Gracia Towing",text:``},
+  {name:"CHINEDU SAMSON",text:``},
+  {name:"Chris Jayden",text:``},
+  {name:"Venkat Reddy",text:``},
+  {name:"V Yagna Prakash",text:``},
+  {name:"Ibrahim Onikosi",text:``},
+  {name:"Chrispel Julio Sayou",text:``},
+  {name:"NCHOUTPOUEN Hassan",text:``},
+  {name:"Sika Dwa",text:``},
+  {name:"Jenabo Nwana",text:``}
 ];
 const grid=document.getElementById('reviewsGrid');
 const moreBtn=document.getElementById('moreBtn');
 let shown=0;const STEP=6;
 function starRow(){return '<div class="stars">★★★★★</div>'}
-function cleanText(t){return t.replace(/Services.*$/gm,'').trim()}
+function cleanText(t){return t.replace(/Services.*$/gm,'').replace(/More$/,'').trim()}
 function renderMore(){
   const next=REVIEWS.slice(shown,shown+STEP);
   next.forEach(r=>{
